@@ -1,0 +1,10 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/socket.io.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/sails.io.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+#{/set}
+
+<a href="@{Application.analyze()}">Analyze me!</a>
