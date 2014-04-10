@@ -11,7 +11,7 @@
 (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect();
+  var socket = io.connect("osd2.library.tamu.edu");
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
@@ -19,12 +19,14 @@
   socket.on('connect', function socketConnected() {
 
     window.addEventListener("click", function() {
+      console.log('click');
       socket.get("/router", {
-        data: {
-          message: "This is from the client!"
+        client: {
+          requestedHost: 'osd3.library.tamu.edu',
+          requestedPath: '/analyze'
         }
       }, function(response) {
-        console.log(response.message);
+        console.log(response);
       });
     });
     ///////////////////////////////////////////////////////////
