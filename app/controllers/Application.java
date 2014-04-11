@@ -11,8 +11,10 @@ public class Application extends Controller {
     	render();
     }
     
-    public static void analyze() {
-        renderJSON("{\"message\": \"Tell me about your father.\"}");
+    public static void analyze(String message) {
+    	System.out.println("Got message from router!");
+    	String response = "Why do you think you want to talk about " + message;
+        renderJSON("{\"message\":" + response + "}");
     }
 
 }

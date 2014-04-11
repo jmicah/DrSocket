@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                                       Application.index
-GET		/analyze								Application.analyze
+GET		/analyze								Application.analyze(message: String)
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

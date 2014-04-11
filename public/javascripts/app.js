@@ -11,18 +11,20 @@
 (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect('osd2.library.tamu.edu');
+  var socket = io.connect('http://localhost:9090');
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
 
   socket.on('connect', function socketConnected() {
-    var button = document.getElementById('question');
+    var button = document.getElementById('questionBtn');
     button.addEventListener("click", function() {
+      var question = document.getElementById('question');
       socket.get("/router", {
         client: {
-          requestedHost: 'osd3.library.tamu.edu',
-          requestedPath: '/analyze'
+          requestedHost: 'localhost:9000',
+          requestedPath: '/analyze',
+          message: question.value
         }
       }, function(response) {
         var answerContainer = document.getElementById('answer');
