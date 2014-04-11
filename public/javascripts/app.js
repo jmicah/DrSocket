@@ -11,7 +11,7 @@
 (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect('http://localhost:9090');
+  var socket = io.connect('http://osd2.library.tamu.edu');
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
@@ -22,7 +22,7 @@
       var question = document.getElementById('question');
       socket.get("/router", {
         client: {
-          requestedHost: 'localhost:9000',
+          requestedHost: 'http://osd3.library.tamu.edu',
           requestedPath: '/analyze',
           message: question.value
         }
