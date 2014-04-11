@@ -11,7 +11,7 @@
 (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect('osd3.library.tamu.edu');
+  var socket = io.connect('osd2.library.tamu.edu');
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
