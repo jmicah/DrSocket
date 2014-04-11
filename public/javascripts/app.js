@@ -11,22 +11,23 @@
 (function (io) {
 
   // as soon as this file is loaded, connect automatically, 
-  var socket = io.connect("osd2.library.tamu.edu");
+  var socket = io.connect('osd3.library.tamu.edu');
   if (typeof console !== 'undefined') {
     log('Connecting to Sails.js...');
   }
 
   socket.on('connect', function socketConnected() {
-
-    window.addEventListener("click", function() {
-      console.log('click');
+    var button = document.getElementById('question');
+    button.addEventListener("click", function() {
       socket.get("/router", {
         client: {
           requestedHost: 'osd3.library.tamu.edu',
           requestedPath: '/analyze'
         }
       }, function(response) {
-        console.log(response);
+        var answerContainer = document.getElementById('answer');
+        var answer = JSON.stringify(response.message.message);
+        answerContainer.innerHTML = answer;
       });
     });
     ///////////////////////////////////////////////////////////
